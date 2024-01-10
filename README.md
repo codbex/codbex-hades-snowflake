@@ -107,7 +107,7 @@
     
     1. Clone codbex-hades
         ```bash
-        git clone https://github.com/codbex/snowpark-hades.git
+        git clone https://github.com/codbex/codbex-hades.git
         ```
     2. Build codbex-hades and image
         ```bash
