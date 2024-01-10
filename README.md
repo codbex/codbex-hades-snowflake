@@ -1,8 +1,8 @@
-# Steps from deploying codbex-hades to Snowflake's snowpark
+# Steps from deploying codbex-hades to Snowflake's Snowpark
 
 ## Snowflake setup
 
-1. Create a non-trial snowflake account
+1. Create a non-trial Snowflake account
 2. In a worksheet execute the following commands:
 
     1. New role, privileges, warehouse and DB:
@@ -115,7 +115,7 @@
         cd application
         docker buildx build --platform linux/amd64 -t codbex-hades .   
         ```
-    3. Login in your snowflake image repository
+    3. Login in your Snowflake image repository
         ```bash
         # snowflake_registry_hostname = org-account.registry.snowflakecomputing.com
         docker login <snowflake_registry_hostname> -u <user_name>
@@ -151,7 +151,7 @@
         networkPolicyConfig:
             allowInternetEgress: true
         ```
-    2. In the snowflake worksheet execute the following command:
+    2. In the Snowflake worksheet execute the following command:
         ```sql
         CREATE SERVICE codbex_hades
         in compute pool CONTAINER_HOL_POOL
