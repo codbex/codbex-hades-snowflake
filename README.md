@@ -141,7 +141,7 @@
                 mountPath: /home/codbex-hades
         endpoints:
             - name: codbex-hades-snowpark
-            port: 8888
+            port: 80
             public: true
         volumes:
             - name: codbex-hades-home
