@@ -104,17 +104,11 @@
         snow connection test --connection "CONTAINER_hol"
         ```
 4. Image preperation
-    
-    1. Clone codbex-hades
+    1. Pull latest codbex-hades image
         ```bash
-        git clone https://github.com/codbex/codbex-hades.git
+        docker pull ghcr.io/codbex/codbex-hades:latest
         ```
-    2. Build codbex-hades and image
-        ```bash
-        mvn clean install
-        cd application
-        docker buildx build --platform linux/amd64 -t codbex-hades .   
-        ```
+        **_NOTE_**: If you are on ARM architecture `export DOCKER_DEFAULT_PLATFORM=linux/amd64`
     3. Login in your Snowflake image repository
         ```bash
         # snowflake_registry_hostname = org-account.registry.snowflakecomputing.com
