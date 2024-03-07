@@ -145,14 +145,18 @@
         networkPolicyConfig:
             allowInternetEgress: true
         ```
-    2. In the Snowflake worksheet execute the following command:
+    2. Deploy the spec file:
+       ```bash
+       snow object stage copy ./src/codbex-hades-snowpark/codbex-hades.yaml  @specs --overwrite --connection CONTAINER_hol
+       ```
+    3. In the Snowflake worksheet execute the following command:
         ```sql
         CREATE SERVICE codbex_hades
         in compute pool CONTAINER_HOL_POOL
         from @specs
         spec = 'codbex-hades-snowpark.yaml';
         ```
-    3. Check your service:
+    4. Check your service:
         ```sql
         CALL SYSTEM$GET_SERVICE_STATUS('CONTAINER_HOL_DB.PUBLIC.CODBEX_HADES');
         CALL SYSTEM$GET_SERVICE_LOGS('CONTAINER_HOL_DB.PUBLIC.CODBEX_HADES', '0', 'codbex-hades', 10);
@@ -160,7 +164,7 @@
 
         SHOW SERVICES like 'codbex_hades';
         ```
-    4. Get service endpoint
+    5. Get service endpoint
         ```sql
         SHOW ENDPOINTS IN SERVICE codbex_hades;
         ```
